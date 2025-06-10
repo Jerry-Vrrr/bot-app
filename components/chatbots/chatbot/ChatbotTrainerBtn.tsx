@@ -89,7 +89,8 @@ const ChatbotTrainerBtn = ({ chatbotId, getTrainings, setFetchingTrainings }: { 
   const uploadFileToS3 = async (fileUpload: FileUpload, index: number): Promise<string> => {
     // Request pre-signed URL from server
     setIsFilesUploading(true)
-    const response = await fetch("/api/chatbot-creator/training/generate-presigned-url", {
+    try {
+      const response = await fetch("/api/chatbot-creator/training/generate-presigned-url", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fileName: fileUpload.file.name, fileType: fileUpload.file.type })
@@ -128,6 +129,9 @@ const ChatbotTrainerBtn = ({ chatbotId, getTrainings, setFetchingTrainings }: { 
       xhr.setRequestHeader("Content-Type", fileUpload.file.type);
       xhr.send(fileUpload.file);
     });
+    } catch(error) {
+      console.log(error, ' preassigned')
+    }
   };
 
   const handleSubmit = async () => {
