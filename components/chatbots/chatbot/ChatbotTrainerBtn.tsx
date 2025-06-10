@@ -152,6 +152,7 @@ const ChatbotTrainerBtn = ({ chatbotId, getTrainings, setFetchingTrainings }: { 
       const s3Urls: string[] = [];
       for (let i = 0; i < fileUploads.length; i++) {
         const s3Url = await uploadFileToS3(fileUploads[i], i);
+        console.log(s3Url, ' ::::s3Url')
         s3Urls.push(s3Url);
       }
       setFetchingTrainings(true);
