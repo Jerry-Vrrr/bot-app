@@ -131,6 +131,7 @@ const ChatbotTrainerBtn = ({ chatbotId, getTrainings, setFetchingTrainings }: { 
     });
     } catch(error) {
       console.log(error, ' preassigned')
+      throw error
     }
   };
 
