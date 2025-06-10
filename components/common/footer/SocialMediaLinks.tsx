@@ -28,7 +28,7 @@ export default function SocialMediaLinks() {
          mx-auto text-center md:text-left md:mx-0">
             {socialLinks.map((item) => (
                 <Link
-                    key={item.href}
+                    key={`${item.href}-${Math.random()}`}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"

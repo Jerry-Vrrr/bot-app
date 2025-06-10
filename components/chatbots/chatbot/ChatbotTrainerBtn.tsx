@@ -95,6 +95,7 @@ const ChatbotTrainerBtn = ({ chatbotId, getTrainings, setFetchingTrainings }: { 
       body: JSON.stringify({ fileName: fileUpload.file.name, fileType: fileUpload.file.type })
     });
     const data = await response.json();
+    console.log(data,' :::::::data')
     const url = data.data.url
     return new Promise<string>((resolve, reject) => {
       const xhr = new XMLHttpRequest();

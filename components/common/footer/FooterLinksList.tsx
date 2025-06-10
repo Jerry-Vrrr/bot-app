@@ -17,7 +17,7 @@ export default function FooterLinksList() {
         <ul className="grid-cols-2 space-x-4 mx-auto text-center md:text-left md:mx-0">
             {footerLinks.map((item) => (
                 <Link
-                    key={item.href}
+                    key={`${item.href}-${Math.random()}`}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
